@@ -3,19 +3,27 @@
     <v-bottom-nav :active.sync="bottomNav" :color="color" :value="true" absolute dark shift>
       <v-btn to='/' dark>
         <span>Video</span>
-        <v-icon>ondemand_video</v-icon>
+        <v-icon>fa-yen-sign</v-icon>
+      </v-btn>
+      <v-btn to='/example1' dark>
+        <span>Book</span>
+        <v-icon>fa-credit-card</v-icon>
+      </v-btn>
+      <v-btn to='/example2' dark>
+        <span>Book</span>
+        <v-icon>fa-credit-card</v-icon>
+      </v-btn>
+      <v-btn to='/example3' dark>
+        <span>Book</span>
+        <v-icon>fa-credit-card</v-icon>
+      </v-btn>
+      <v-btn to='/example4' dark>
+        <span>Image</span>
+        <v-icon>fa-wallet</v-icon>
       </v-btn>
       <v-btn to='/about' dark>
         <span>Music</span>
-        <v-icon>music_note</v-icon>
-      </v-btn>
-      <v-btn dark>
-        <span>Book</span>
-        <v-icon>book</v-icon>
-      </v-btn>
-      <v-btn dark>
-        <span>Image</span>
-        <v-icon>image</v-icon>
+        <v-icon>fa-coins</v-icon>
       </v-btn>
     </v-bottom-nav>
   </v-card>
@@ -28,7 +36,6 @@ export default {
       bottomNav: 3
     }
   },
-
   computed: {
     color() {
       switch (this.bottomNav) {
@@ -39,6 +46,10 @@ export default {
         case 2:
           return "brown"
         case 3:
+          return "indigo"
+        case 4:
+          return "indigo"
+        case 5:
           return "indigo"
       }
       return "white"
