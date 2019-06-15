@@ -10,10 +10,13 @@ import planetChartData from "./chart-data.js"
 
 export default {
   name: "example2",
-  components: {},
+  components: {
+
+  },
   data() {
     return {
-      planetChartData: planetChartData
+      planetChartData: planetChartData,
+      myChart: null
     }
   },
   mounted() {
@@ -21,15 +24,12 @@ export default {
   },
   methods: {
     createChart(chartId, chartData) {
-
       const ctx = document.getElementById(chartId)
-
-      const myChart = new Chart(ctx, {
+      this.myChart = new Chart(ctx, {
         type: chartData.type,
         data: chartData.data,
         options: chartData.options
       })
-
     }
   }
 }
