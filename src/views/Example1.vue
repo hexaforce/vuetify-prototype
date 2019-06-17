@@ -16,18 +16,21 @@
                 </v-sheet>
               </template>
               <v-card :color=cryptoCurrency.bgcolor>
+
                 <v-img :aspect-ratio="16/9" :src=cryptoCurrency.logo class="my-3" contain height="80"/>
                 <v-card-title primary-title>
                   <v-card-text>保有数：　{{ cryptoCurrency.retentionCount }} {{ cryptoCurrency.symbol }} ({{ cryptoCurrency.retentionCount * cryptoCurrency.unitPrice }}円相当)</v-card-text>
                   <div>出庫可能数：　{{ cryptoCurrency.unHoldingsCount }} {{ cryptoCurrency.symbol }}</div>
                 </v-card-title>
 
+                <CurrencyChart :symbol=cryptoCurrency.symbol />
+                
                 <v-card-text>{{ cryptoCurrency.text }} </v-card-text>
-
               </v-card>
             </v-expansion-panel-content>
           </draggable>
         </v-expansion-panel>
+        
       </v-flex>
     </v-layout>
   </v-container>
@@ -35,11 +38,13 @@
 
 <script>
 import draggable from "vuedraggable"
+import CurrencyChart from "@/components/CurrencyChart.vue"
 
 export default {
   name: "example1",
   components: {
-    draggable
+    draggable,
+    CurrencyChart
   },
   data: () => ({
       cryptoCurrencys: [
