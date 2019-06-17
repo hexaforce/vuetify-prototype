@@ -17,10 +17,6 @@
         <span>Book</span>
         <v-icon>fa-credit-card</v-icon>
       </v-btn>
-      <v-btn to='/example4' dark>
-        <span>Image</span>
-        <v-icon>fa-wallet</v-icon>
-      </v-btn>
       <v-btn to='/about' dark>
         <span>Music</span>
         <v-icon>fa-coins</v-icon>

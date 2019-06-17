@@ -13,7 +13,7 @@
 
 <script>
 import Chart from "chart.js";
-import { TimeSeriesChartData, dataMock } from "./TimeSeriesChartData.js";
+import { TimeSeriesChartData, dataMock } from "./TotalAssetChartConfigData.js";
 
 export default {
   data() {
