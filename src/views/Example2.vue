@@ -1,19 +1,22 @@
 <template>
   <v-container>
     <v-layout text-xs-center row wrap>
-
-    <TotalAssetChart />
-
+      <TotalAssetChart/>
+    </v-layout>
+    <v-layout text-xs-center row wrap>
+      <TotalAssetDoughnutChart/>
     </v-layout>
   </v-container>
 </template>
 
 <script>
-import TotalAssetChart from "@/components/TotalAssetChart.vue"
+import TotalAssetChart from '@/components/TotalAssetChart.vue'
+import TotalAssetDoughnutChart from '@/components/TotalAssetDoughnutChart.vue'
 export default {
-  name: "example2",
+  name: 'example2',
   components: {
-    TotalAssetChart
+    TotalAssetChart,
+    TotalAssetDoughnutChart
   }
 }
 </script>
