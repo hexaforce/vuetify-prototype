@@ -26,11 +26,11 @@ export default new Router({
       name: 'example1',
       component: () => import(/* webpackChunkName: "example1" */ './views/Example1.vue')
     },
-    {
-      path: '/example2',
-      name: 'example2',
-      component: () => import(/* webpackChunkName: "example2" */ './views/Example2.vue')
-    },
+    // {
+    //   path: '/example2',
+    //   name: 'example2',
+    //   component: () => import(/* webpackChunkName: "example2" */ './views/Example2.vue')
+    // },
     {
       path: '/example3',
       name: 'example3',

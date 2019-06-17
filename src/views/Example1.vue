@@ -7,7 +7,7 @@
       <v-flex xs12 lg5 offset-lg2>
         <v-expansion-panel inset> 
 -->
-          <draggable v-model="tabs" class="v-expansion-panel__container">
+          <draggable class="v-expansion-panel__container">
             <v-expansion-panel-content v-for="cryptoCurrency in cryptoCurrencys" :key="cryptoCurrency.id" :expand-icon="cryptoCurrency.icon">
               <template v-slot:header>
                 <v-sheet :color=cryptoCurrency.bgcolor>
@@ -24,8 +24,7 @@
                 </v-card-title>
 
                 <CurrencyChart :symbol=cryptoCurrency.symbol />
-                
-                <v-card-text>{{ cryptoCurrency.text }} </v-card-text>
+                <InstantForm :buyItem=cryptoCurrency :allItem=cryptoCurrencys />
               </v-card>
             </v-expansion-panel-content>
           </draggable>
@@ -39,12 +38,14 @@
 <script>
 import draggable from "vuedraggable"
 import CurrencyChart from "@/components/CurrencyChart.vue"
+import InstantForm from "@/components/InstantForm.vue"
 
 export default {
   name: "example1",
   components: {
     draggable,
-    CurrencyChart
+    CurrencyChart,
+    InstantForm
   },
   data: () => ({
       cryptoCurrencys: [
@@ -59,8 +60,7 @@ export default {
           paymentaAllow: ["JPY", "ETH", "XRP"],
           unitPrice: 900000,
           retentionCount:1000,
-          unHoldingsCount:1000,
-          text: "This is a 1st tab"
+          unHoldingsCount:1000
         },
         {
           id: 2,
@@ -73,8 +73,7 @@ export default {
           paymentaAllow: ["JPY", "BTC", "XRP"],
           unitPrice: 25000,
           retentionCount: 25000,
-          unHoldingsCount:1000,
-          text: "This is a 2nd tab"
+          unHoldingsCount:1000
         },
         {
           id: 3,
@@ -87,8 +86,7 @@ export default {
           paymentaAllow: ["JPY", "BTC", "ETH"],
           unitPrice: 50,
           retentionCount:1000,
-          unHoldingsCount:1000,
-          text: "This is a 3rd tab"
+          unHoldingsCount:1000
         }
       ]
 
