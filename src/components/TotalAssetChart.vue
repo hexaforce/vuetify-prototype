@@ -1,12 +1,12 @@
 <template>
-  <v-flex xs6>
-    <canvas id="TimeSeriesChart"></canvas>
-    <v-btn-toggle v-model="text">
-      <v-btn outline @click="reRenderChart1" value="1">１週</v-btn>
-      <v-btn outline @click="reRenderChart2" value="2">１ヶ月</v-btn>
-      <v-btn outline @click="reRenderChart3" value="3">３ヶ月</v-btn>
-      <v-btn outline @click="reRenderChart4" value="4">６ヶ月</v-btn>
-      <v-btn outline @click="reRenderChart5" value="5">１年</v-btn>
+  <v-flex>
+    <canvas id="TimeSeriesChart"/>
+    <v-btn-toggle>
+      <v-btn outline @click="reRenderChart(1)" value="1">１週</v-btn>
+      <v-btn outline @click="reRenderChart(2)" value="2">１ヶ月</v-btn>
+      <v-btn outline @click="reRenderChart(3)" value="3">３ヶ月</v-btn>
+      <v-btn outline @click="reRenderChart(4)" value="4">６ヶ月</v-btn>
+      <v-btn outline @click="reRenderChart(5)" value="5">１年</v-btn>
     </v-btn-toggle>
   </v-flex>
 </template>
@@ -16,6 +16,7 @@ import Chart from "chart.js";
 import { TimeSeriesChartData, dataMock } from "./TotalAssetChartConfigData.js";
 
 export default {
+  name: "TimeSeriesChart",
   data() {
     return {
       chart: null,
@@ -38,25 +39,27 @@ export default {
         options: chartData.options
       })
     },
-    reRenderChart1() {
-      this.reRenderChart(this.data1)
+    reRenderChart(x) {
+      switch(x){
+        case 1:
+          this.reRender(this.data1)
+          break
+        case 2:
+          this.reRender(this.data2)
+          break
+        case 3:
+          this.reRender(this.data3)
+          break
+        case 4:
+          this.reRender(this.data4)
+          break
+        case 5:
+          this.reRender(this.data5)
+          break
+      }
     },
-    reRenderChart2() {
-      this.reRenderChart(this.data2)
-    },
-    reRenderChart3() {
-      this.reRenderChart(this.data3)
-    },
-    reRenderChart4() {
-      this.reRenderChart(this.data4)
-    },
-    reRenderChart5() {
-      this.reRenderChart(this.data5)
-    },
-    reRenderChart(data) {
-      this.chart.data.datasets.forEach(dataset => {
-        dataset.data = data
-      })
+    reRender(data) {
+      this.chart.data.datasets[0].data = data
       this.chart.update()
     }
   }

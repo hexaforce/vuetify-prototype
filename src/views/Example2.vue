@@ -1,17 +1,19 @@
 <template>
   <v-container>
-    <div class="about">
-      <h1>This is an about page4</h1>
-    </div>
+    <v-layout text-xs-center row wrap>
+
+    <TotalAssetChart />
+
+    </v-layout>
   </v-container>
 </template>
 
 <script>
-//import HelloWorld from "@/components/HelloWorld.vue"
+import TotalAssetChart from "@/components/TotalAssetChart.vue"
 export default {
-  name: "example4",
+  name: "example2",
   components: {
-    // HelloWorld
+    TotalAssetChart
   }
 }
 </script>
